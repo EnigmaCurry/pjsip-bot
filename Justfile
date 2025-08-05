@@ -22,9 +22,11 @@ activate: env
 install: env
 	uv pip install
 
+config:
+	@if [ ! -f .env ]; then cp .env-dist .env && echo "Created new .env file from .env-dist template."; else echo "Reading .env file"; fi
+
 # Run the program in the virtual environment
-run: env
-	if [ ! -f .env ]; then cp .env-dist .env; fi && \
+run: env config
 	LD_LIBRARY_PATH=/usr/local/lib env $(cat .env | xargs) uv run python main.py
 
 deps: env
