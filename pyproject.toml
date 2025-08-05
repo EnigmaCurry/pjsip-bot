@@ -1,0 +1,7 @@
+[project]
+name = "pjsip-bot"
+version = "0.1.0"
+description = "A SIP bot that can recieve phone calls"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = []
